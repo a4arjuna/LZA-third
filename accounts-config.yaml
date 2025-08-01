@@ -23,7 +23,7 @@ mandatoryAccounts:
     email: arjunnv+third+audit@amazon.com
     organizationalUnit: Security
     warm: false
-# workloadAccounts:
+workloadAccounts:
 #   - name: AFT-Management
 #     description: Account in Infrastructure OU
 #     email: example email
