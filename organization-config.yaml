@@ -1,9 +1,8 @@
 enable: true
 organizationalUnits:
   - name: Security
-  - name: AFT management account
-  - name: Sandbox
-    # ignore: true
+  - name: Infrastructure
 serviceControlPolicies: []
 taggingPolicies: []
+chatbotPolicies: []
 backupPolicies: []
