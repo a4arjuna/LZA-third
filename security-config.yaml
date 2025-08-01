@@ -4,7 +4,7 @@ centralSecurityServices:
     enable: false
     excludeRegions: []
   s3PublicAccessBlock:
-    enable: true
+    enable: false
     excludeAccounts: []
   scpRevertChangesConfig:
     enable: false
@@ -13,17 +13,16 @@ centralSecurityServices:
     enable: false
     excludeRegions: []
     policyFindingsPublishingFrequency: FIFTEEN_MINUTES
-    publishSensitiveDataFindings: true
+    publishSensitiveDataFindings: false
   guardduty:
-    enable: true
-    excludeRegions:
-      - us-east-1
+    enable: false
+    excludeRegions: []
     s3Protection:
-      enable: true
+      enable: false
       excludeRegions: []
     exportConfiguration:
-      enable: true
-      overrideExisting: true
+      enable: false
+      overrideExisting: false
       destinationType: S3
       exportFrequency: FIFTEEN_MINUTES
   securityHub:
@@ -43,7 +42,7 @@ iamPasswordPolicy:
   requireLowercaseCharacters: true
   requireSymbols: true
   requireNumbers: true
-  minimumPasswordLength: 15
+  minimumPasswordLength: 14
   passwordReusePrevention: 24
   maxPasswordAge: 90
 awsConfig:
@@ -52,30 +51,5 @@ awsConfig:
 cloudWatch:
   metricSets: []
   alarmSets: []
-  logGroups:
-    # At present, OU targetting does not work - AWS bug
-    # 09-logging-vpcFlowlogsLogGroup
-    - logGroupName: aws-lza-vpc-flowlogs
-      logRetentionInDays: 90
-      terminationProtected: false
-      encryption:
-        useLzaManagedKey: true
-      deploymentTargets:
-        accounts:
-          - LogArchive
-          - Audit
-          - Training
-
 keyManagementService:
   keySets: []
-  # # 04-account-setup-localEbsKey
-  # - name: aws-lza-ebs-key
-  #   deploymentTargets:
-  #     organizationalUnits:
-  #       - Sandbox
-  #   alias: alias/aws-lza-ebs
-  #   policy: kms-key-policies/04-account-setup-aws-lza-ebs-key-policy.json
-  #   description: ABS Account EBS Encryption Key
-  #   enabled: true
-  #   enableKeyRotation: true
-  #   removalPolicy: destroy
