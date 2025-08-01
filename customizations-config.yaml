@@ -4,9 +4,9 @@ customizations:
         accounts:
           - LogArchive
       description: Sample stack description
-      name: Custom-S3-Stack
+      name: Custom-LogGroup-Stack
       regions:
         - us-east-1
       runOrder: 1
-      template: templates/s3.yaml
+      template: templates/loggroup.yaml
       terminationProtection: false
